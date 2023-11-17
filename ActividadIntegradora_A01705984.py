@@ -8,7 +8,7 @@ import numpy as np
 
 st.title('Police incident reports from 2018 to 2020 in San Francisco')
 
-df = pd.read_csv('Police.csv')
+df = pd.read_csv('Police_comp.csv')
 
 st.markdown('The data shown below belongs to incident reports in the City of San Francisco, from the year 2018 to 2020, woth details from each case such as date, day of the week, police district, neighbourhood in which it happened, type of incident in category and subcategory, exact location and resolution')
 
