@@ -1,4 +1,4 @@
-from matplotlib import pyplot as plt
+#from matplotlib import pyplot as plt
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -61,7 +61,7 @@ if agree:
     st.bar_chart(subset_data['Incident Subcategory'].value_counts())
 
 st.markdown('Resolution status')
-fig1, ax1 = plt.subplots()
-labels = subset_data['Resolution'].unique()
-ax1.pie(subset_data['Resolution'].value_counts(), labels=labels, autopct='%1.1f%%', startangle=90)
-st.pyplot(fig1)
+#fig1, ax1 = plt.subplots()
+#labels = subset_data['Resolution'].unique()
+#ax1.pie(subset_data['Resolution'].value_counts(), labels=labels, autopct='%1.1f%%', startangle=90)
+#st.pyplot(fig1)
