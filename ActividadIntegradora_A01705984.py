@@ -1,18 +1,18 @@
-pip install matplotlib
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "matplotlib"])
 
 import streamlit as st
 import pandas as pd
 import numpy as np
-# import plotly as px
-# import plotly.figure_factory as ff
-# from bokeh.plotting import figure
 import matplotlib.pyplot as plt
 
 st.title('Police incident reports from 2018 to 2020 in San Francisco')
 
 df = pd.read_csv('Police_comp.csv')
 
-st.markdown('The data shown below belongs to incident reports in the City of San Francisco, from the year 2018 to 2020, woth details from each case such as date, day of the week, police district, neighbourhood in which it happened, type of incident in category and subcategory, exact location and resolution')
+st.markdown('The data shown below belongs to incident reports in the City of San Francisco, from the year 2018 to 2020, with details from each case such as date, day of the week, police district, neighborhood in which it happened, type of incident in category and subcategory, exact location, and resolution')
 
 mapa = pd.DataFrame()
 mapa['Date'] = df['Incident Date']
