@@ -4,7 +4,7 @@ import numpy as np
 # import plotly as px
 # import plotly.figure_factory as ff
 # from bokeh.plotting import figure
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 st.title('Police incident reports from 2018 to 2020 in San Francisco')
 
@@ -43,3 +43,24 @@ if len(incident_input) > 0:
     subset_data = subset_data1[subset_data1['Incident Category'].isin(incident_input)]
 
 subset_data
+
+st.markdown('It is important to mention that any police district can answer to any incident, the neighbourhood in which it happened is not related to the police district')
+st.markdown('Crime locations in San Francisco')
+st.map(subset_data)
+st.markdown('Crimes ocurred per day of the week')
+st.bar_chart(subset_data['Day'].value_counts())
+st.markdown('Crimes ocurred per date')
+st.bar_chart(subset_data['Date'].value_counts())
+st.markdown('Types of crimes committed')
+st.bar_chart(subset_data['Incident Category'].value_counts())
+
+agree = st.button('Click to see incident subcategories')
+if agree:
+    st.markdown('Subtype of crimes committed')
+    st.bar_chart(subset_data['Incident Subcategory'].value_counts())
+
+st.markdown('Resolution status')
+fig1, ax1 = plt.subplots()
+labels = subset_data['Resolution'].unique()
+ax1.pie(subset_data['Resolution'].value_counts(), labels=labels, autopct='%1.1f%%', startangle=90)
+st.pyplot(fig1)
