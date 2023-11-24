@@ -25,6 +25,8 @@ mapa['lat'] = df['Latitude']
 mapa['lon'] = df['Longitude']
 mapa = mapa.dropna()
 
+st.sidebar.title('Filter Options')
+
 subset_data4 = mapa
 police_district_input = st.sidebar.multiselect('Police District',
                                          mapa.groupby('District').count().reset_index()['District'].tolist())
