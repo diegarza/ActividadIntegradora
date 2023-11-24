@@ -84,3 +84,12 @@ values = subset_data['Resolution'].value_counts()
 fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.5)])
 
 st.plotly_chart(fig)
+
+st.markdown('Districts with the most crimes')
+
+labels2 = subset_data['District'].unique()
+values2 = subset_data['District'].value_counts()
+
+fig2 = go.Figure(data=[go.Pie(labels=labels2, values=values2, hole=.5)])
+
+st.plotly_chart(fig2)
