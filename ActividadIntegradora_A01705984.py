@@ -25,23 +25,35 @@ mapa['lat'] = df['Latitude']
 mapa['lon'] = df['Longitude']
 mapa = mapa.dropna()
 
-subset_data2 = mapa
+subset_data4 = mapa
 police_district_input = st.sidebar.multiselect('Police District',
                                          mapa.groupby('District').count().reset_index()['District'].tolist())
 if len(police_district_input) > 0:
-    subset_data2 = mapa[mapa['District'].isin(police_district_input)]
+    subset_data4 = mapa[mapa['District'].isin(police_district_input)]
+
+subset_data3 = subset_data4
+neighbourhood_input = st.sidebar.multiselect('Neighbourhood',
+                                         subset_data4.groupby('Neighbourhood').count().reset_index()['Neighbourhood'].tolist())
+if len(neighbourhood_input) > 0:
+    subset_data3 = subset_data4[subset_data4['Neighbourhood'].isin(neighbourhood_input)]
+
+subset_data2 = subset_data3
+incident_input = st.sidebar.multiselect('Incident Category',
+                                        subset_data3.groupby('Incident Category').count().reset_index()['Incident Category'].tolist())
+if len(incident_input) > 0:
+    subset_data2 = subset_data3[subset_data3['Incident Category'].isin(incident_input)]
 
 subset_data1 = subset_data2
-neighbourhood_input = st.sidebar.multiselect('Neighbourhood',
-                                         subset_data2.groupby('Neighbourhood').count().reset_index()['Neighbourhood'].tolist())
-if len(neighbourhood_input) > 0:
-    subset_data1 = subset_data2[subset_data2['Neighbourhood'].isin(neighbourhood_input)]
+incident_sub_input = st.sidebar.multiselect('Incident Subcategory',
+                                        subset_data2.groupby('Incident Subcategory').count().reset_index()['Incident Subcategory'].tolist())
+if len(incident_sub_input) > 0:
+    subset_data1 = subset_data2[subset_data2['Incident Subcategory'].isin(incident_sub_input)]
 
 subset_data = subset_data1
-incident_input = st.sidebar.multiselect('Incident Category',
-                                        subset_data1.groupby('Incident Category').count().reset_index()['Incident Category'].tolist())
-if len(incident_input) > 0:
-    subset_data = subset_data1[subset_data1['Incident Category'].isin(incident_input)]
+resolution_input = st.sidebar.multiselect('Resolution',
+                                        subset_data1.groupby('Resolution').count().reset_index()['Resolution'].tolist())
+if len(resolution_input) > 0:
+    subset_data = subset_data1[subset_data1['Resolution'].isin(resolution_input)]    
 
 subset_data
 
