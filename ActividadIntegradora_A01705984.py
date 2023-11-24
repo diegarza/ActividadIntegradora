@@ -1,11 +1,11 @@
-#from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt
 import streamlit as st
 import pandas as pd
 import numpy as np
-#import matplotlib.pyplot as plt
-# import plotly as px
-# import plotly.figure_factory as ff
-# from bokeh.plotting import figure
+import matplotlib.pyplot as plt
+import plotly as px
+import plotly.figure_factory as ff
+from bokeh.plotting import figure
 
 st.title('Police incident reports from 2018 to 2020 in San Francisco')
 
@@ -61,7 +61,7 @@ if agree:
     st.bar_chart(subset_data['Incident Subcategory'].value_counts())
 
 st.markdown('Resolution status')
-#fig1, ax1 = plt.subplots()
-#labels = subset_data['Resolution'].unique()
-#ax1.pie(subset_data['Resolution'].value_counts(), labels=labels, autopct='%1.1f%%', startangle=90)
-#st.pyplot(fig1)
+fig1, ax1 = plt.subplots()
+labels = subset_data['Resolution'].unique()
+ax1.pie(subset_data['Resolution'].value_counts(), labels=labels, autopct='%1.1f%%', startangle=90)
+st.pyplot(fig1)
