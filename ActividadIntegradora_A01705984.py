@@ -61,7 +61,7 @@ subset_data
 
 st.markdown('It is important to mention that any police district can answer to any incident, the neighbourhood in which it happened is not related to the police district')
 st.markdown('Crime locations in San Francisco')
-st.map(subset_data)
+st.map(subset_data, color='#0047AB')
 st.markdown('Crimes ocurred per day of the week')
 st.bar_chart(subset_data['Day'].value_counts())
 st.markdown('Crimes ocurred per date')
