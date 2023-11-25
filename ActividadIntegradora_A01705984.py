@@ -93,3 +93,13 @@ values2 = subset_data['District'].value_counts()
 fig2 = go.Figure(data=[go.Pie(labels=labels2, values=values2, hole=.5)])
 
 st.plotly_chart(fig2)
+
+agree1 = st.button('Click to see neighbourhoods with the most crimes')
+if agree1:
+    st.markdown('Neighbourhoods with the most crimes')
+    labels3 = subset_data['Neighbourhood'].unique()
+    values3 = subset_data['Neighbourhood'].value_counts()
+
+    fig3 = go.Figure(data=[go.Pie(labels=labels3, values=values3, hole=.5)])
+
+    st.plotly_chart(fig3)
