@@ -67,6 +67,8 @@ st.markdown('Crimes ocurred per day of the week')
 st.bar_chart(subset_data['Day'].value_counts())
 st.markdown('Crimes ocurred per date')
 st.bar_chart(subset_data['Date'].value_counts())
+st.markdown('Crimes ocurred per date (line chart)')
+st.line_chart(subset_data['Date'].value_counts())
 st.markdown('Types of crimes committed')
 st.bar_chart(subset_data['Incident Category'].value_counts(),
              color = (.7,.3,.6,.5))
